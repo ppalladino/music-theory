@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import Chord from "./Chord"
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import MainNav from "./MainNav"
+import HomePage from "./HomePage"
 import ScalePicker from "./ScalePicker";
 import { CHROMATIC_SCALE, MODES } from "./lib/constants";
 
@@ -165,9 +167,20 @@ console.log("THE CHORD INFO", theChordInfos);
 const App = () => {
   return (
     <div>
-      <h1>Music Theory</h1>
-
-      <ScalePicker />
+      <Router>
+        <header>
+          <Link to="/">Hiya App</Link>
+        </header>
+        <MainNav></MainNav> 
+        <Switch>
+          <Route path="/music-theory/guitar-scales">
+            <ScalePicker />
+          </Route>
+          <Route path="/">
+            <HomePage></HomePage>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };

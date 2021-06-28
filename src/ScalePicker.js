@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { CHROMATIC_SCALE, MODES } from "./lib/constants";
 
 const modeLabels = MODES.map((i) => i.label);
@@ -6,6 +6,8 @@ const modeLabels = MODES.map((i) => i.label);
 const ScalePicker = () => {
   const [key, setKey] = useState(CHROMATIC_SCALE[0]);
   const [modeLabel, setModeLabel] = useState(modeLabels[0]);
+
+  // useEffect(() => {alert('chaged')}, [key, modeLabel])
 
   return (
     <div className="scale-picker">
